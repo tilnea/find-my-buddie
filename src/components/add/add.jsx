@@ -17,7 +17,7 @@ const Add = () => {
 
   const goOn = () => {
     // Andre Send newTopics to database
-    history.push("/leaderboard");
+    history("/leaderboard");
   };
 
   return (

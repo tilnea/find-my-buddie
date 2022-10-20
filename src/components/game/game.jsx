@@ -32,7 +32,7 @@ const Game = () => {
 
   const goOn = () => {
     // Andre Send answers to database
-    history.push("/add");
+    history("/add");
   };
 
   return (
@@ -44,7 +44,8 @@ const Game = () => {
             <Card topic={topics[topic]} />
           </div>
           <button onClick={() => handleVote(1)}>Yes</button>
-          <button onClick={() => handleVote(0)}>NO</button>
+          <button onClick={() => handleVote(0)}>Maybe</button>
+          <button onClick={() => handleVote(-1)}>NO</button>
         </div>
       )}
       {!showGame && (

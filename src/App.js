@@ -4,6 +4,7 @@ import Welcome from "./components/welcome/welcome";
 import Name from "./components/name/name";
 import Game from "./components/game/game";
 import Add from "./components/add/add";
+import Leaderboard from "./components/leaderboard/leaderboard";
 
 const App = () => {
   const [name, setName] = useState("");
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/welcome" element={<Welcome name={name} />} />
           <Route path="/game" element={<Game />} />
           <Route path="/add" element={<Add />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
         </Routes>
       </div>
     </Router>
