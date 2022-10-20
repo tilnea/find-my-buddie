@@ -5,7 +5,11 @@ import classnames from "classnames";
 import styles from "./add.module.css";
 
 const InputField = ({ onChange }) => {
-  return <input onChange={onChange} />;
+  return (
+    <div className={styles.input}>
+      <input onChange={onChange} />
+    </div>
+  );
 };
 
 const Add = () => {
@@ -21,9 +25,9 @@ const Add = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       Add 3 opics about yourself
-      <div>
+      <div className={styles.inputs}>
         <InputField onChange={(e) => addNewTopic(e, 0)} />
         <InputField onChange={(e) => addNewTopic(e, 1)} />
         <InputField onChange={(e) => addNewTopic(e, 2)} />

@@ -6,8 +6,12 @@ import styles from "./card.module.css";
 
 const data = ["Alexandre", "Thomas", "Lucien"];
 
-const Card = ({ topic }) => {
-  return <div>{topic}</div>;
+const Card = ({ topic, color }) => {
+  return (
+    <div className={styles.card} style={{ backgroundColor: color }}>
+      {topic}
+    </div>
+  );
 };
 
 export default Card;

@@ -9,9 +9,7 @@ const Name = ({ onChange }) => {
     <div>
       <div>Please enter your name</div>
       <input onChange={onChange}></input>
-      <Link to={`/welcome`} key={`next-button`}>
-        GO!
-      </Link>
+      <Link to={`/welcome`}>GO!</Link>
     </div>
   );
 };

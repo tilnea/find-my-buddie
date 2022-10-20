@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Card from "../card/card";
+import Emoji from "../emoji/emoji";
 import { useNavigate } from "react-router-dom";
 
 import classnames from "classnames";
@@ -15,45 +16,278 @@ const topics = [
   "Dancing",
 ];
 
+const colors = [
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+  "#957DAD",
+  "#B1C294",
+  "#9EAEB2",
+  "#9EAEB2",
+  "#DBB4C0",
+  "#DBB4C0",
+  "#a4b6dd",
+  "#d09292",
+  "#c094cc",
+  "#a2d0c0",
+  "#c37892",
+];
+
 const Game = () => {
   let history = useNavigate();
   const [answers, setAnswers] = useState([]);
   const [topic, setTopic] = useState(0);
 
-  const [showGame, setShowGame] = useState(true);
-
   const handleVote = (number) => {
     setAnswers([...answers, number]);
     if (topic === topics.length - 1) {
-      setShowGame(false);
+      //setShowGame(false);
+      history("/add");
     }
     setTopic(topic + 1);
   };
 
-  const goOn = () => {
-    // Andre Send answers to database
-    history("/add");
-  };
+  console.log(topic);
 
   return (
-    <div>
-      Play game
-      {showGame && (
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        How do you feel about
         <div>
-          <div>
-            <Card topic={topics[topic]} />
-          </div>
-          <button onClick={() => handleVote(1)}>Yes</button>
-          <button onClick={() => handleVote(0)}>Maybe</button>
-          <button onClick={() => handleVote(-1)}>NO</button>
+          <Card topic={topics[topic]} color={colors[topic]} />
         </div>
-      )}
-      {!showGame && (
-        <div>
-          We Now, lets add some interests of your own{" "}
-          <button onClick={goOn}>Go</button>
+        <div className={styles.emojies}>
+          <button className={styles.emoji} onClick={() => handleVote(1)}>
+            {<Emoji.EmojiGrinningIcon width={30} />}
+          </button>
+          <button className={styles.emoji} onClick={() => handleVote(0)}>
+            {<Emoji.EmojiIndifferentIcon width={30} />}
+          </button>
+          <button className={styles.emoji} onClick={() => handleVote(-1)}>
+            {<Emoji.EmojiSadIcon width={30} />}
+          </button>
         </div>
-      )}
+      </div>
     </div>
   );
 };

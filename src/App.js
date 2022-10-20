@@ -5,6 +5,7 @@ import Name from "./components/name/name";
 import Game from "./components/game/game";
 import Add from "./components/add/add";
 import Leaderboard from "./components/leaderboard/leaderboard";
+import Profile from "./components/profile/profile";
 
 const App = () => {
   const [name, setName] = useState("");
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/game" element={<Game />} />
           <Route path="/add" element={<Add />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/profile/:id" element={<Profile />} />
         </Routes>
       </div>
     </Router>
