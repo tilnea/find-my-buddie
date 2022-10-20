@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 import classnames from "classnames";
 import styles from "./name.module.css";
 
-const Name = ({ onChange }) => {
+const Name = ({ onChange, name }) => {
   let history = useNavigate();
 
   /* const goOn = () => {
