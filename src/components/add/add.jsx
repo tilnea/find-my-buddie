@@ -26,7 +26,8 @@ const Add = () => {
 
   return (
     <div className={styles.container}>
-      Add 3 opics about yourself
+      Add 3 topics about yourself that you would like to share with your
+      colleagues
       <div className={styles.inputs}>
         <InputField onChange={(e) => addNewTopic(e, 0)} />
         <InputField onChange={(e) => addNewTopic(e, 1)} />

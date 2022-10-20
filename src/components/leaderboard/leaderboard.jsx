@@ -23,7 +23,6 @@ const Leaderboard = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    console.log("hello");
     const url = "http://192.168.103.84:8000/api/users";
     axios.get(url).then((response) => {
       setUsers(response.data);
@@ -58,20 +57,22 @@ const Leaderboard = () => {
             </div>
           </Link>
         ) : (
-          <div className={styles.item}>
+          <div>
             <Link to={`/profile/${person.id}`}>
-              <div>
-                {index + 1}. {person.name} and you have
-                {person.commonTopics.map((topic, j) => (
-                  <span>
-                    {" "}
-                    {topic}
-                    {j !== person.commonTopics.length - 1 ? "," : ""}
-                  </span>
-                ))}{" "}
-                in common.
-              </div>{" "}
-              <div>You match {person.match}%</div>
+              <div className={styles.item}>
+                <div>
+                  {index + 1}. {person.name} and you have
+                  {person.commonTopics.map((topic, j) => (
+                    <span>
+                      {" "}
+                      {topic}
+                      {j !== person.commonTopics.length - 1 ? "," : ""}
+                    </span>
+                  ))}{" "}
+                  in common.
+                </div>{" "}
+                <div>{person.match}%</div>
+              </div>
             </Link>
           </div>
         );
