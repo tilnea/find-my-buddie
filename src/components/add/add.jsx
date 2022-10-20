@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import classnames from "classnames";
 import styles from "./add.module.css";
@@ -8,14 +9,26 @@ const InputField = ({ onChange }) => {
 };
 
 const Add = () => {
+  const [newTopics, setNewTopics] = useState(["", "", ""]);
+  let history = useNavigate();
+  const addNewTopic = (e) => {
+    //Handle change of topic
+  };
+
+  const goOn = () => {
+    // Andre Send newTopics to database
+    history.push("/leaderboard");
+  };
+
   return (
     <div>
       Add 3 opics about yourself
       <div>
-        <InputField />
-        <InputField />
-        <InputField />
+        <InputField onChange={(e) => addNewTopic(e, 0)} />
+        <InputField onChange={(e) => addNewTopic(e, 1)} />
+        <InputField onChange={(e) => addNewTopic(e, 2)} />
       </div>
+      <button onClick={goOn}>Go</button>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Card from "../card/card";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import classnames from "classnames";
 import styles from "./game.module.css";
@@ -16,6 +16,7 @@ const topics = [
 ];
 
 const Game = () => {
+  let history = useNavigate();
   const [answers, setAnswers] = useState([]);
   const [topic, setTopic] = useState(0);
 
@@ -29,7 +30,10 @@ const Game = () => {
     setTopic(topic + 1);
   };
 
-  console.log(answers);
+  const goOn = () => {
+    // Andre Send answers to database
+    history.push("/add");
+  };
 
   return (
     <div>
@@ -46,9 +50,7 @@ const Game = () => {
       {!showGame && (
         <div>
           We Now, lets add some interests of your own{" "}
-          <Link to={`/add`} key={`next-button`}>
-            GO!
-          </Link>
+          <button onClick={goOn}>Go</button>
         </div>
       )}
     </div>
